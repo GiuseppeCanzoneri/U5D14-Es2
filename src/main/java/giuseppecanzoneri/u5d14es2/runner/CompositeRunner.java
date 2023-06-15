@@ -1,19 +1,26 @@
-package giuseppecanzoneri.u5d14es2.main;
+package giuseppecanzoneri.u5d14es2.runner;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import giuseppecanzoneri.u5d14es2.composite.Book;
 import giuseppecanzoneri.u5d14es2.composite.Page;
 import giuseppecanzoneri.u5d14es2.composite.Section;
 
-public class Main {
-	public static void main(String[] args) {
+@Component
+public class CompositeRunner implements CommandLineRunner {
+
+	@Override
+	public void run(String... args) throws Exception {
+
 		// Creazione di un libro con due autori e prezzo 19.99
 		List<String> authors = new ArrayList<>();
 		authors.add("Autore1");
 		authors.add("Autore2");
-		Book book = new Book("Il mio libro", authors, 19.99);
+		Book book1 = new Book("Il mio libro", authors, 19.99);
 
 		// Creazione di alcune pagine con contenuto
 		Page page1 = new Page(10,
@@ -35,16 +42,16 @@ public class Main {
 		section2.addPage(page3);
 
 		// Aggiunta delle sezioni al libro
-		book.addSection(section1);
-		book.addSection(section2);
+		book1.addSection(section1);
+		book1.addSection(section2);
 
 		// Stampa il numero totale di pagine del libro
-		System.out.println("Numero totale di pagine del libro: " + book.getTotalPages());
+		System.out.println("Numero totale di pagine del libro: " + book1.getTotalPages());
 
 		// Stampa il libro intero
-		book.printBook();
+//		book1.printBook();
 
 		// Stampa una singola pagina
-//		book.printPage(page2);
+		book1.printPage(page2);
 	}
 }
