@@ -1,4 +1,4 @@
-package giuseppecanzoneri.u5d14es2.runner;
+package giuseppecanzoneri.u5d14es2;
 
 import java.util.ArrayList;
 import java.util.List;
